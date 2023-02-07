@@ -89,6 +89,9 @@ class _ProjectPageState extends State<ProjectPage> {
               buildAvatar('Mike', 'mike'),
               buildAvatar('Brandon', 'brandon'),
               buildAvatar('Alie', 'alie'),
+              buildAvatar('Mia', 'mia'),
+              buildAvatar('Adam', 'adam'),
+              buildAvatar('Jess', 'jess'),
             ],
           ),
         ),
@@ -101,7 +104,7 @@ class _ProjectPageState extends State<ProjectPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   Text(
-                    "Files",
+                    "Kiến thức đầu tư",
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 18,
@@ -119,13 +122,11 @@ class _ProjectPageState extends State<ProjectPage> {
               const SizedBox(
                 height: 15,
               ),
-              buildFileRow('Assets', true),
-              buildFileRow('Brandbook', false),
-              buildFileRow('Design', false),
-              buildFileRow('Moodboards', false),
-              buildFileRow('Wirefremes', false),
-              buildFileRow('Other', false),
-              buildFileRow('Assets', false),
+              buildImageInteractionCard(),
+              buildImageInteractionCard(),
+              buildImageInteractionCard(),
+              buildImageInteractionCard(),
+              buildImageInteractionCard(),
             ],
           ),
         )
@@ -162,59 +163,103 @@ class _ProjectPageState extends State<ProjectPage> {
     );
   }
 
-  Container buildFileRow(String folderName, bool showAlert) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      height: 65,
-      decoration: BoxDecoration(
-          color: Colors.grey.shade200, borderRadius: BorderRadius.circular(15)),
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Row(
+  Widget buildImageInteractionCard() => Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
+        ),
+        child: Column(
           children: [
             Stack(
               children: [
-                Icon(
-                  Icons.folder,
-                  color: Colors.blue[200],
+                Ink.image(
+                  image: const NetworkImage(
+                    "https://vntest.vn/wp-content/uploads/2021/03/nongsanvietvansongtamguithuonghieunuocngoai-1562742939_1562742967.jpg",
+                  ),
+                  height: 240,
+                  fit: BoxFit.cover,
+                  child: const InkWell(),
                 ),
-                if (showAlert)
-                  Positioned(
-                    right: -1,
-                    top: 2,
-                    child: Container(
-                      padding: const EdgeInsets.all(2),
-                      decoration: const BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.white),
-                      child: const CircleAvatar(
-                        radius: 3.5,
-                        backgroundColor: Colors.red,
-                      ),
+                const Positioned(
+                  bottom: 16,
+                  right: 16,
+                  left: 16,
+                  child: Text(
+                    'Giao dịch hàng hóa - Xu hướng đầu tư 202223',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      backgroundColor: Colors.black87,
+                      fontSize: 24,
                     ),
-                  )
+                  ),
+                ),
               ],
             ),
-            const SizedBox(
-              width: 12,
-            ),
-            Text(
-              folderName,
-              style: const TextStyle(
-                fontSize: 16,
-              ),
-            )
+            Padding(
+                padding: const EdgeInsets.all(16).copyWith(bottom: 0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(children: const [
+                      Icon(
+                        Icons.favorite,
+                        color: Colors.pink,
+                        size: 12,
+                      ),
+                      Text(
+                        " LeMinh",
+                        style: TextStyle(fontSize: 16),
+                      )
+                    ]),
+                    Row(children: const [
+                      Icon(
+                        Icons.favorite,
+                        color: Colors.pink,
+                        size: 12,
+                      ),
+                      Text(
+                        " 11/1/2022",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ]),
+                    const Text(
+                      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scr",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ],
+                )),
+            Container(
+                margin: const EdgeInsets.only(bottom: 0),
+                padding: const EdgeInsets.symmetric(horizontal: 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    ButtonBar(
+                      alignment: MainAxisAlignment.start,
+                      children: [
+                        TextButton(
+                          child: const Text('Read more'),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.only(right: 8),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.favorite,
+                              color: Colors.pink[600],
+                            ),
+                            const Text("2")
+                          ],
+                        )),
+                  ],
+                )),
           ],
         ),
-        IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.more_vert_rounded,
-            color: Colors.grey,
-          ),
-        )
-      ]),
-    );
-  }
+      );
 
   Widget buildAvatar(String name, String filename) {
     return Padding(
