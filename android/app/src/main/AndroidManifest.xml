@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cloud_files">
+    package="com.example.chefio1">
    <application
-        android:label="cloud_files"
+        android:label="chefio1"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,4 +1,4 @@
-import 'package:cloud_files/pages/project.dart';
+import './project.dart';
 import 'package:flutter/material.dart';
 
 class TeamFolderPage extends StatefulWidget {

@@ -83,15 +83,15 @@ class _ProjectPageState extends State<ProjectPage> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
-              buildAvatar('Mia', 'mia'),
-              buildAvatar('Adam', 'adam'),
-              buildAvatar('Jess', 'jess'),
-              buildAvatar('Mike', 'mike'),
-              buildAvatar('Brandon', 'brandon'),
-              buildAvatar('Alie', 'alie'),
-              buildAvatar('Mia', 'mia'),
-              buildAvatar('Adam', 'adam'),
-              buildAvatar('Jess', 'jess'),
+              buildAvatar('Minh', 'mia'),
+              buildAvatar('Thi', 'adam'),
+              buildAvatar('Khoa', 'jess'),
+              buildAvatar('Minh', 'mike'),
+              buildAvatar('Thi', 'brandon'),
+              buildAvatar('Khoa', 'alie'),
+              buildAvatar('Minh', 'mia'),
+              buildAvatar('Thi', 'adam'),
+              buildAvatar('Khoa', 'jess'),
             ],
           ),
         ),
@@ -239,7 +239,7 @@ class _ProjectPageState extends State<ProjectPage> {
                       alignment: MainAxisAlignment.start,
                       children: [
                         TextButton(
-                          child: const Text('Read more'),
+                          child: const Text('Xem chi tiết'),
                           onPressed: () {},
                         ),
                       ],
