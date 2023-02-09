@@ -1,5 +1,7 @@
 import './project.dart';
 import 'package:flutter/material.dart';
+import 'package:chefio1/view/screen/taps/profile_tap.dart';
+import 'package:chefio1/view/screen/taps/veritable_tab.dart';
 
 class TeamFolderPage extends StatefulWidget {
   const TeamFolderPage({Key? key}) : super(key: key);
@@ -31,14 +33,14 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Text(
-                  "Riotters",
+                  "Xin chào MinhLee",
                   style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
                 ),
                 Text(
-                  "Team folder",
+                  "20.000.000 VND",
                   style: TextStyle(fontSize: 17, color: Colors.white),
                 ),
               ],
@@ -88,25 +90,16 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
             children: [
               RichText(
                   text: const TextSpan(
-                      text: "Storage ",
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                      children: [
-                    TextSpan(
-                      text: "9.1/10GB",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w300,
-                        fontSize: 16,
-                      ),
-                    )
-                  ])),
-              const Text(
-                "Upgrade",
+                text: "Tiến độ nông sản đang đầu tư ",
                 style: TextStyle(
-                    fontSize: 16,
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              )),
+              const Text(
+                "Xem biểu đồ",
+                style: TextStyle(
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                     color: Colors.blue),
               ),
@@ -120,19 +113,19 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
           padding: const EdgeInsets.symmetric(horizontal: 25),
           child: Row(
             children: [
-              buildFileSizeChart("SOURCES", Colors.blue, .3),
+              buildFileSizeChart("Đang thu hoạch", Colors.blue, .3),
               const SizedBox(
                 width: 2,
               ),
-              buildFileSizeChart("DOCS", Colors.red, .25),
+              buildFileSizeChart("Giá thấp", Colors.red, .25),
               const SizedBox(
                 width: 2,
               ),
-              buildFileSizeChart("IMAGES", Colors.yellow, .20),
+              buildFileSizeChart("Giá cao", Colors.yellow, .20),
               const SizedBox(
                 width: 2,
               ),
-              buildFileSizeChart("", Colors.grey[200], .23),
+              buildFileSizeChart("Còn lại", Colors.grey[200], .23),
             ],
           ),
         ),
@@ -147,7 +140,7 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
             padding: const EdgeInsets.all(25),
             children: [
               const Text(
-                "Recently updated",
+                "Lợi nhuận đạt được",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
@@ -156,18 +149,18 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
               const SizedBox(
                 height: 15,
               ),
-              
+
               Row(
                 children: [
-                  buildFileColumn('sketch', 'desktop', '.sketch'),
+                  buildFileColumn('sketch', 'Kiwi', ' - 11.2%'),
                   SizedBox(
                     width: availableScreenWidth * .03,
                   ),
-                  buildFileColumn('sketch', 'mobile', '.sketch'),
+                  buildFileColumn('sketch', 'Cafe', ' - 8%'),
                   SizedBox(
                     width: availableScreenWidth * .03,
                   ),
-                  buildFileColumn('prd', 'interaction', '.prd'),
+                  buildFileColumn('prd', 'Nho', ' - 2%'),
                 ],
               ),
               const Divider(
@@ -175,64 +168,43 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    "Projects ",
+                children: [
+                  const Text(
+                    "Danh sách đầu tư",
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
-                  Text(
-                    "Create new",
-                    style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue),
-                  ),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const VeritableTab()),
+                        );
+                      },
+                      child: const Text(
+                        "Tìm thêm nông sản",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue),
+                      ))
                 ],
               ),
               const SizedBox(
                 height: 20,
               ),
               // Folder List
-              buildProjectRow("Chatbox"),
-              buildProjectRow("TimeNote"),
-              buildProjectRow("Something"),
-              buildProjectRow("Other"),
+              buildProjectRow("Đã thu hoạch"),
+              buildProjectRow("Đang thu hoạch"),
+              buildProjectRow("Sắp thu hoạch"),
+              buildProjectRow("Sản phẩm dự tính đầu tư"),
             ],
           ),
         )
       ]),
-      floatingActionButton: Container(
-        decoration: const BoxDecoration(shape: BoxShape.circle, boxShadow: [
-          BoxShadow(color: Colors.white, spreadRadius: 7, blurRadius: 1)
-        ]),
-        child: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.add),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: BottomNavigationBar(
-          onTap: (index) {
-            setState(() {
-              selectedIndex = index;
-            });
-          },
-          currentIndex: selectedIndex,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.access_time),
-              label: 'Time',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.add_box),
-              label: 'Folder',
-            ),
-          ]),
     );
   }
 
@@ -240,15 +212,18 @@ class _TeamFolderPageState extends State<TeamFolderPage> {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute<void>(
-      builder: (BuildContext context) =>  ProjectPage(folderName: folderName,),));
+          builder: (BuildContext context) => ProfileTap(),
+        ));
       },
       child: Container(
         margin: const EdgeInsets.only(bottom: 8),
         padding: const EdgeInsets.symmetric(horizontal: 20),
         height: 65,
         decoration: BoxDecoration(
-            color: Colors.grey.shade200, borderRadius: BorderRadius.circular(15)),
-        child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            color: Colors.grey.shade200,
+            borderRadius: BorderRadius.circular(15)),
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
           Row(
             children: [
               Icon(

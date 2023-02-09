@@ -142,7 +142,7 @@ class VeritableUpload extends StatelessWidget {
                       Container(
                         child: const VeritableSlider(),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       CustomButton(

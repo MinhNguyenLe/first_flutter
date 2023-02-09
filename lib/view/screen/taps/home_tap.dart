@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 import 'package:chefio1/view/widget/custom_button.dart';
 import 'package:chefio1/view/screen/blog_detail.dart';
-import 'package:chefio1/view/screen/taps/profile_tap.dart';
+import 'package:chefio1/view/screen/taps/author_profile.dart';
 
 import '../../widget/Custom_product_Item_widget.dart';
 import '../../widget/custom_binary_option.dart';
@@ -224,7 +224,7 @@ class HomeTap extends StatelessWidget {
       child: GestureDetector(
         onTap: () => {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ProfileTap()))
+              context, MaterialPageRoute(builder: (context) => AuthorProfile()))
         },
         child: Column(
           children: [

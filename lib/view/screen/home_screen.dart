@@ -7,6 +7,8 @@ import 'package:chefio1/view/screen/taps/profile_tap.dart';
 import 'package:chefio1/view/screen/taps/scan_tap.dart';
 
 import 'package:chefio1/view/screen/taps/upload_tap.dart';
+import 'package:chefio1/view/screen/taps/team_folder.dart';
+
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
@@ -42,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
     const HomeTap(),
     const VeritableTab(),
     const ScanTap(),
-    ProfileTap(),
+    const TeamFolderPage(),
     NotitcationTap(),
   ];
 

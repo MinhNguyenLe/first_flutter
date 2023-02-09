@@ -3,12 +3,15 @@ import 'dart:ui';
 import 'package:chefio1/constans/colors.dart';
 import 'package:chefio1/view/screen/product_item_screen.dart';
 import 'package:chefio1/view/screen/taps/profile_tap.dart';
+import 'package:chefio1/view/screen/veritable_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
 class CustomProductItemWidget extends StatefulWidget {
-  CustomProductItemWidget({Key? key, this.showUser = true}) : super(key: key);
-  bool showUser;
+  CustomProductItemWidget({Key? key, this.name = "", this.price = ""})
+      : super(key: key);
+  String name;
+  String price;
 
   @override
   State<CustomProductItemWidget> createState() =>
@@ -17,6 +20,7 @@ class CustomProductItemWidget extends StatefulWidget {
 
 class _CustomProductItemWidgetState extends State<CustomProductItemWidget> {
   bool favorite = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,49 +29,8 @@ class _CustomProductItemWidgetState extends State<CustomProductItemWidget> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Name and profail picture
-          widget.showUser == true
-              ? InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ProfileTap(
-                                showFollowBottomInProfile: true,
-                              )),
-                    );
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Row(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(2),
-                          clipBehavior: Clip.antiAlias,
-                          child: Image.asset(
-                            "assets/imges/Rectangle 196.png",
-                            height: 32,
-                            width: 32,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          "Calum Lewis",
-                          style: Theme.of(context)
-                              .textTheme
-                              .subtitle1!
-                              .copyWith(color: mainText),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              : const SizedBox(),
+          const SizedBox(),
 
-          // product image and favorite botton
           Stack(
             children: [
               // Product image
@@ -85,7 +48,7 @@ class _CustomProductItemWidgetState extends State<CustomProductItemWidget> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProductItemScreen()));
+                              builder: (context) => VeritableDetailScreen()));
                     },
                     child: Image.asset(
                       "assets/imges/Rectangle 188.png",
@@ -94,7 +57,6 @@ class _CustomProductItemWidgetState extends State<CustomProductItemWidget> {
                   ),
                 ),
               ),
-              // Favorite botton
               Positioned(
                 top: 20,
                 right: 20,
@@ -149,7 +111,7 @@ class _CustomProductItemWidgetState extends State<CustomProductItemWidget> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
-              "Pancake",
+              widget.name,
               style: Theme.of(context).textTheme.headline2,
             ),
           ),
@@ -159,7 +121,7 @@ class _CustomProductItemWidgetState extends State<CustomProductItemWidget> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
-              "Food . > 60m",
+              widget.price,
               style: Theme.of(context)
                   .textTheme
                   .subtitle1!

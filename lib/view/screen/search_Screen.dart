@@ -225,7 +225,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 color: form,
                 textColor: mainText,
               )),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Expanded(

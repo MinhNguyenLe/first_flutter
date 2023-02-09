@@ -164,6 +164,17 @@ class VeritableTab extends StatelessWidget {
                           style: TextStyle(fontSize: 16),
                         ),
                       ]),
+                      Row(children: const [
+                        Icon(
+                          Icons.favorite,
+                          color: Colors.pink,
+                          size: 12,
+                        ),
+                        Text(
+                          " 3 tháng sau thu hoạch",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ]),
                       const Text(
                         "Quả kiwi hay quả lý gai Trung Quốc là quả mọng ăn được của một số loài dây leo thân gỗ trong chi Actinidia",
                         style: TextStyle(fontSize: 16),

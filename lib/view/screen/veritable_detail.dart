@@ -2,10 +2,12 @@ import 'dart:ui';
 
 import 'package:chefio1/constans/colors.dart';
 import 'package:chefio1/view/screen/taps/profile_tap.dart';
+import 'package:chefio1/view/screen/taps/upload_tap.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:iconly/iconly.dart';
+import 'package:chefio1/view/widget/custom_button.dart';
 
 class VeritableDetailScreen extends StatelessWidget {
   const VeritableDetailScreen({Key? key}) : super(key: key);
@@ -18,7 +20,7 @@ class VeritableDetailScreen extends StatelessWidget {
         children: [
           SizedBox(
             width: double.infinity,
-            child: Image.asset("assets/imges/Food Picture.png"),
+            child: Image.asset("assets/imges/Onboarding.png"),
           ),
           buttonArrow(context),
           scroll(),
@@ -125,7 +127,7 @@ class VeritableDetailScreen extends StatelessWidget {
                         child: const CircleAvatar(
                           radius: 25,
                           backgroundImage:
-                              AssetImage("assets/imges/Avatar3.png"),
+                              AssetImage("assets/imges/Avatar.png"),
                         ),
                       ),
                       const SizedBox(
@@ -195,9 +197,9 @@ class VeritableDetailScreen extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  ingredients(context,"Rẻ"),
-                  ingredients(context,"Thu hoạch sớm"),
-                  ingredients(context,"Lợi nhuận cao"),
+                  ingredients(context, "Rẻ"),
+                  ingredients(context, "Thu hoạch sớm"),
+                  ingredients(context, "Lợi nhuận cao"),
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15),
                     child: Divider(
@@ -205,7 +207,7 @@ class VeritableDetailScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Các bước thu hoạch",
+                    "Các thời điểm thu hoạch",
                     style: Theme.of(context).textTheme.headline1,
                   ),
                   const SizedBox(
@@ -217,6 +219,37 @@ class VeritableDetailScreen extends StatelessWidget {
                     itemCount: 3,
                     itemBuilder: (context, index) => steps(context, index),
                   ),
+                  const Divider(),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                          child: CustomButton(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        text: "Hủy",
+                        color: form,
+                        textColor: mainText,
+                      )),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Expanded(
+                          child: CustomButton(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const UploadTap(),
+                              ));
+                        },
+                        text: "Đầu tư",
+                      ))
+                    ],
+                  )
                 ],
               ),
             ),
@@ -224,7 +257,7 @@ class VeritableDetailScreen extends StatelessWidget {
         });
   }
 
-  ingredients(BuildContext context,String whyGood) {
+  ingredients(BuildContext context, String whyGood) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
@@ -264,6 +297,25 @@ class VeritableDetailScreen extends StatelessWidget {
           ),
           Column(
             children: [
+              Image.asset(
+                "assets/imges/Rectangle 219.png",
+                height: 155,
+                width: 270,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: 270,
+                child: Text(
+                  "Thang 10",
+                  maxLines: 3,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText2!
+                      .copyWith(color: mainText),
+                ),
+              ),
               SizedBox(
                 width: 270,
                 child: Text(
@@ -275,14 +327,6 @@ class VeritableDetailScreen extends StatelessWidget {
                       .copyWith(color: mainText),
                 ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              Image.asset(
-                "assets/imges/Rectangle 219.png",
-                height: 155,
-                width: 270,
-              )
             ],
           )
         ],

@@ -125,7 +125,7 @@ class BlogDetailScreen extends StatelessWidget {
                         child: const CircleAvatar(
                           radius: 25,
                           backgroundImage:
-                              AssetImage("assets/imges/Avatar3.png"),
+                              AssetImage("assets/imges/Avatar2.png"),
                         ),
                       ),
                       const SizedBox(
