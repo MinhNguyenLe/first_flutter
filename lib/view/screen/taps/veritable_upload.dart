@@ -112,6 +112,34 @@ class VeritableUpload extends StatelessWidget {
                         height: 20,
                       ),
                       Text(
+                        "Số mùa vụ trong năm",
+                        style: Theme.of(context).textTheme.headline2,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      CustomTextFildInUpload(
+                        hint: "Số mùa vụ trong năm",
+                        radius: 30,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        "Giá trung bình",
+                        style: Theme.of(context).textTheme.headline2,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      CustomTextFildInUpload(
+                        hint: "Giá trung bình",
+                        radius: 30,
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
                         "Số lượng",
                         style: Theme.of(context).textTheme.headline2,
                       ),

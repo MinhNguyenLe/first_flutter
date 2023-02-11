@@ -18,11 +18,11 @@ class _CustomSliderState extends State<CustomSlider> {
         Row(
           children: [
             Text(
-              "Cooking Duration",
+              "Thời gian đọc trung bình",
               style: Theme.of(context).textTheme.headline2,
             ),
             Text(
-              "( in minutes )",
+              "( phút )",
               style: Theme.of(context).textTheme.bodyText1,
             ),
           ],
